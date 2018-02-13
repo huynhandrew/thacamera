@@ -5,6 +5,18 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('todoapp', ['ionic'])
 
+.controller('takePicture', function($scope, $http){
+    $scope.takePhoto = function() {
+        alert("hello");
+        //added two function(){} to replace the parameter that was there
+        navigator.camera.getPicture(function(){
+            alert(imageData);
+        }, function(message) {
+            console.log(message);
+        }, onFail, { quality: 50 }); //from the https://gist.github.com/dhavaln/2238017 line 84
+    }
+})
+
 .controller('todoctrl', function($scope, $http) {
   $scope.model={};
   $scope.todos = [];
